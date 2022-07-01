@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Andriod With Kotlin/Kotlin Progress Programs/SmartShamba/app/src/main/res/drawable/app_bar_main_bg.xml" value="0.1885" />
+        <entry key="..\:/Andriod With Kotlin/Kotlin Progress Programs/SmartShamba/app/src/main/res/font/allerta.xml" value="0.3046875" />
+        <entry key="..\:/Andriod With Kotlin/Kotlin Progress Programs/SmartShamba/app/src/main/res/layout/activity_main.xml" value="0.27447916666666666" />
+        <entry key="..\:/Andriod With Kotlin/Kotlin Progress Programs/SmartShamba/app/src/main/res/layout/app_bar_main.xml" value="0.27447916666666666" />
+        <entry key="..\:/Andriod With Kotlin/Kotlin Progress Programs/SmartShamba/app/src/main/res/layout/content_main.xml" value="0.27447916666666666" />
+        <entry key="..\:/Andriod With Kotlin/Kotlin Progress Programs/SmartShamba/app/src/main/res/layout/fragment_gallery.xml" value="0.27447916666666666" />
+        <entry key="..\:/Andriod With Kotlin/Kotlin Progress Programs/SmartShamba/app/src/main/res/layout/fragment_home.xml" value="0.27447916666666666" />
+        <entry key="..\:/Andriod With Kotlin/Kotlin Progress Programs/SmartShamba/app/src/main/res/layout/fragment_home2.xml" value="0.2604166666666667" />
+        <entry key="..\:/Andriod With Kotlin/Kotlin Progress Programs/SmartShamba/app/src/main/res/layout/nav_header_main.xml" value="0.27447916666666666" />
+        <entry key="..\:/Andriod With Kotlin/Kotlin Progress Programs/SmartShamba/app/src/main/res/menu/activity_main_drawer.xml" value="0.27447916666666666" />
+        <entry key="..\:/Andriod With Kotlin/Kotlin Progress Programs/SmartShamba/app/src/main/res/menu/main.xml" value="0.27447916666666666" />
+<<<<<<< HEAD
+        <entry key="..\:/documents/BITC/Projects/Smart Shamba/source code/smart-shamba/SmartShamba/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.273" />
+        <entry key="..\:/documents/BITC/Projects/Smart Shamba/source code/smart-shamba/SmartShamba/app/src/main/res/drawable/app_bar_main_bg.xml" value="0.273" />
+        <entry key="..\:/documents/BITC/Projects/Smart Shamba/source code/smart-shamba/SmartShamba/app/src/main/res/drawable/bg_fragment_main.xml" value="0.273" />
+        <entry key="..\:/documents/BITC/Projects/Smart Shamba/source code/smart-shamba/SmartShamba/app/src/main/res/drawable/bg_main_home_frag.xml" value="0.273" />
+        <entry key="..\:/documents/BITC/Projects/Smart Shamba/source code/smart-shamba/SmartShamba/app/src/main/res/drawable/ic_launcher_background.xml" value="0.273" />
+        <entry key="..\:/documents/BITC/Projects/Smart Shamba/source code/smart-shamba/SmartShamba/app/src/main/res/drawable/ic_sprout_tree.xml" value="0.273" />
+        <entry key="..\:/documents/BITC/Projects/Smart Shamba/source code/smart-shamba/SmartShamba/app/src/main/res/drawable/news_feeds_btn.xml" value="0.273" />
+        <entry key="..\:/documents/BITC/Projects/Smart Shamba/source code/smart-shamba/SmartShamba/app/src/main/res/layout/activity_main.xml" value="0.24954710144927536" />
+        <entry key="..\:/documents/BITC/Projects/Smart Shamba/source code/smart-shamba/SmartShamba/app/src/main/res/layout/app_bar_main.xml" value="0.24954710144927536" />
+        <entry key="..\:/documents/BITC/Projects/Smart Shamba/source code/smart-shamba/SmartShamba/app/src/main/res/layout/content_main.xml" value="0.24954710144927536" />
+        <entry key="..\:/documents/BITC/Projects/Smart Shamba/source code/smart-shamba/SmartShamba/app/src/main/res/layout/fragment_home.xml" value="0.24954710144927536" />
+=======
+        <entry key="..\:/Andriod With Kotlin/Kotlin Progress Programs/smart-shamba/SmartShamba/app/src/main/res/drawable/app_bar_main_bg.xml" value="0.1885" />
+        <entry key="..\:/Andriod With Kotlin/Kotlin Progress Programs/smart-shamba/SmartShamba/app/src/main/res/drawable/bg_fragment_main.xml" value="0.1885" />
+        <entry key="..\:/Andriod With Kotlin/Kotlin Progress Programs/smart-shamba/SmartShamba/app/src/main/res/drawable/bg_main_home_frag.xml" value="0.1885" />
+        <entry key="..\:/Andriod With Kotlin/Kotlin Progress Programs/smart-shamba/SmartShamba/app/src/main/res/layout/activity_main.xml" value="0.27447916666666666" />
+        <entry key="..\:/Andriod With Kotlin/Kotlin Progress Programs/smart-shamba/SmartShamba/app/src/main/res/layout/activity_market_place.xml" value="0.27447916666666666" />
+        <entry key="..\:/Andriod With Kotlin/Kotlin Progress Programs/smart-shamba/SmartShamba/app/src/main/res/layout/app_bar_main.xml" value="0.27447916666666666" />
+        <entry key="..\:/Andriod With Kotlin/Kotlin Progress Programs/smart-shamba/SmartShamba/app/src/main/res/layout/app_bar_market_place.xml" value="0.27447916666666666" />
+        <entry key="..\:/Andriod With Kotlin/Kotlin Progress Programs/smart-shamba/SmartShamba/app/src/main/res/layout/content_main.xml" value="0.27447916666666666" />
+        <entry key="..\:/Andriod With Kotlin/Kotlin Progress Programs/smart-shamba/SmartShamba/app/src/main/res/layout/content_market_place.xml" value="0.27447916666666666" />
+        <entry key="..\:/Andriod With Kotlin/Kotlin Progress Programs/smart-shamba/SmartShamba/app/src/main/res/layout/fragment_home.xml" value="0.27447916666666666" />
+        <entry key="..\:/Andriod With Kotlin/Kotlin Progress Programs/smart-shamba/SmartShamba/app/src/main/res/layout/nav_header_main.xml" value="0.27447916666666666" />
+>>>>>>> 8c58246fd805c799a7a9a7581c015e948c5a3e32
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
