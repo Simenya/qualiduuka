@@ -20,7 +20,7 @@ class ScanCode : AppCompatActivity() {
     var cardView1: CardView? = null
     var cardView2: CardView? = null
     var btnEnterCode: Button? = null
-    var codeValue: EditText? = null
+    var codeContent: TextView? = null
     var tvText: TextView? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +28,7 @@ class ScanCode : AppCompatActivity() {
 
         cardView1 = findViewById(R.id.cardView1)
         cardView2 = findViewById(R.id.cardView2)
-        codeValue = findViewById(R.id.scanQrId)
+        codeContent = findViewById(R.id.code2ValueId)
         tvText = findViewById(R.id.tvText)
 
 
@@ -55,27 +55,27 @@ class ScanCode : AppCompatActivity() {
 
     private fun scanQr(){
         val qrScanner = IntentIntegrator(this)
-        qrScanner.setPrompt("scan a QR code")
+        qrScanner.setPrompt("QR code Scanning...")
         qrScanner.setCameraId(0)
-        qrScanner.setOrientationLocked(true)
+        qrScanner.setOrientationLocked(false)
         qrScanner.setBeepEnabled(true)
         qrScanner.captureActivity = CaptureActivity::class.java
         qrScanner.initiateScan()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-
         val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
         if (result != null) {
             if (result.contents == null) {
                 Toast.makeText(this, "Result Not Found", Toast.LENGTH_SHORT).show()
-                codeValue!!.setText("")
+                codeContent!!.text = ""
             } else {
+                val qrContent = findViewById<TextView>(R.id.code2ValueId)
                 try {
-                    val qrContent = codeValue!!.setText(result.contents.toString())
+                    codeContent!!.text = (result.contents.toString())
                 } catch (exception: JSONException) {
                     Toast.makeText(this, exception.localizedMessage, Toast.LENGTH_SHORT).show()
-                    codeValue!!.setText("")
+                    codeContent!!.text = ""
                 }
 
             }

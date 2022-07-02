@@ -9,9 +9,9 @@
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_gallery"
-            android:title="item" />
+            android:title="About" />
         <item
             android:id="@+id/nav_slideshow"
-            android:title="item" />
+            android:title="Settings" />
     </group>
 </menu>

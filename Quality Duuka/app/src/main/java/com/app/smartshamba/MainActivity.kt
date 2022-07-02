@@ -62,20 +62,20 @@ class MainActivity : AppCompatActivity() {
     fun setListData(context: Context){
         //Generating A data source
         val itemNames:Array<String> = arrayOf(
-            "Maize",
-            "Tomatoes",
-            "Passion Fruit",
-            "Rabbits",
-            "Poultry",
-            "Onions"
+            "Crisps",
+            "Fanta Soda 300ml",
+            "Pizza",
+            "Colgate",
+            "Pacolator",
+            "Water Bottle"
         )
         val itemPrices:Array<String> = arrayOf(
             "2000",
-            "5000",
+            "3000",
             "20000",
             "30000",
             "40000",
-            "50000"
+            "25000"
         )
 
         val gridView = findViewById<ListView>(R.id.listViewId)
