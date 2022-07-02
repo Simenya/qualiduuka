@@ -1,7 +1,9 @@
 package com.app.smartshamba
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.GridView
 import android.widget.ImageView
 import android.widget.ListView
@@ -19,6 +21,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+    var scanCode: ImageView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +30,12 @@ class MainActivity : AppCompatActivity() {
 
         //calling the list adapter function
         setListData(this)
+    //Scan Qr Code
+        scanCode = findViewById(R.id.scanQrId)
+        scanCode!!.setOnClickListener {
+            startActivity(Intent(this, ScanCode::class.java))
+
+        }
 
         setSupportActionBar(binding.appBarMain.toolbar)
 

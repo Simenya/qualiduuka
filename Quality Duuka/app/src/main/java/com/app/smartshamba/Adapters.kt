@@ -27,7 +27,7 @@ class ItemAdapter(private val context: Context, private val arrayList:ArrayList<
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val layout = LayoutInflater.from(context).inflate(R.layout.scanned_item_list,parent,false)
-        layout.findViewById<TextView>(R.id.itemNameId).text = arrayList[position].itemName
+        layout.findViewById<TextView>(R.id.codeValueId).text = arrayList[position].itemName
         layout.findViewById<TextView>(R.id.itemPriceId).text = (arrayList[position].itemPrice)
 
         return layout
