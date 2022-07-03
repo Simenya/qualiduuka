@@ -8,7 +8,7 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="ss_transparent">#00000000</color>
-    <color name="ss_black_glass">#44000000</color>
+    <color name="ss_black_glass">#00000000</color>
     <color name="ss_grey">#FF555555</color>
     <color name="ss_status_bar">#254415</color>
     <color name="teal_700">#FF7F08</color>

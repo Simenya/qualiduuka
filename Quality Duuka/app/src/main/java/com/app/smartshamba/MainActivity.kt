@@ -20,6 +20,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.text.isDigitsOnly
 import com.app.smartshamba.databinding.ActivityMainBinding
+import com.app.smartshamba.fragments.ConfirmDialog
 import com.google.zxing.integration.android.IntentIntegrator
 import com.journeyapps.barcodescanner.CaptureActivity
 import org.json.JSONException
@@ -35,6 +36,13 @@ class MainActivity : AppCompatActivity() {
     private var itemValue:TextView? = null
     lateinit var bottomView:RelativeLayout
     lateinit var total:TextView
+    private val scannedPrices = ArrayList<String>()
+    private val scannedNames = ArrayList<String>()
+//    private var dialogTotalCost = 0
+//    private lateinit var dialogTotalItems:TextView
+
+    var totalCost = 0
+    var numberItems = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +56,8 @@ class MainActivity : AppCompatActivity() {
         bottomView = findViewById(R.id.textBtnBottomId)
         total = findViewById(R.id.totalId)
 
+
+
         //Scan Qr Code
         scanProduct.setOnClickListener {
             cardScaProduct.visibility = View.GONE
@@ -55,6 +65,10 @@ class MainActivity : AppCompatActivity() {
             bottomView.visibility = View.GONE
 
             cameraTask()
+        }
+        //call confirm function
+        findViewById<TextView>(R.id.confirmId).setOnClickListener {
+            confirmDialog()
         }
 
 
@@ -78,19 +92,29 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
     }
 
+    private fun confirmDialog(){
+        if (totalCost > 100 && scannedNames!=null && scannedPrices!=null){
+
+            //display a dialog
+            val dialog = ConfirmDialog()
+            dialog.show(supportFragmentManager, "Activities")
+            val intent = Intent(this, ConfirmDialog::class.java)
+            intent.putExtra("totalItems", numberItems)
+
+            Toast.makeText(this, "Thanks For Shopping", Toast.LENGTH_SHORT).show()
+        }else{
+            Toast.makeText(this, "No Shopping Made !!!", Toast.LENGTH_SHORT).show()
+        }
+    }
+
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
 
-    fun setListData(context: Context, itemName:String, itemPrice:String){
+    fun setListData(context: Context, itemNames:ArrayList<String>, itemPrices:ArrayList<String>){
         //Generating A data source
-        val itemNames = ArrayList<String>()
-        itemNames.add(itemName)
-        val itemPrices = ArrayList<String>()
-        itemPrices.add(itemPrice)
-
         val gridView = findViewById<ListView>(R.id.listViewId)
 
         val listOfArray:ArrayList<ItemDataModels> = arrayListOf()
@@ -151,16 +175,18 @@ class MainActivity : AppCompatActivity() {
                     val splitContent = content.split(" ")
                     val itemName = splitContent[0]
                     val itemPrice = splitContent[splitContent.lastIndex]
-                    var totals = 0
+                    scannedNames.add(itemName)
+                    scannedPrices.add(itemPrice)
 
                     if (splitContent.size > 1){
                         if (itemPrice.isDigitsOnly()){
-                            for (i in content){
-                                setListData(this, itemName, itemPrice)
+                            for (i in 0 until (scannedPrices.size)){
+                                totalCost += scannedPrices[i].toInt()
+                                total.text = totalCost.toString()
+                                numberItems += scannedNames.size
                             }
-                            totals += itemPrice.toInt()
-                            total.text = totals.toString()
 
+                            setListData(this, scannedNames, scannedPrices)
                             cardScaProduct.visibility = View.VISIBLE
                             layoutItems.visibility = View.VISIBLE
                             bottomView.visibility = View.VISIBLE
