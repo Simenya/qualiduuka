@@ -12,4 +12,5 @@
     <color name="ss_grey">#FF555555</color>
     <color name="ss_status_bar">#254415</color>
     <color name="teal_700">#FF7F08</color>
+    <color name="teal_600">#f27a02</color>
 </resources>

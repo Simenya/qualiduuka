@@ -8,7 +8,7 @@
     tools:context=".fragments.HomeFragment">
 
     <LinearLayout
-        android:id="@+id/linearLayout3"
+        android:id="@+id/linearLayoutScan"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/bg_shape_corner_top15"
@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardView2"
+            android:id="@+id/cardView1"
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:visibility="visible"
@@ -34,7 +34,7 @@
 
 
             <ImageView
-                android:id="@+id/scanQrId"
+                android:id="@+id/scanQrCodeId"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="30dp"
@@ -44,9 +44,10 @@
         </androidx.cardview.widget.CardView>
 
         <RelativeLayout
-            android:id="@+id/linearLayout2"
+            android:id="@+id/linearLayoutItems"
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
@@ -70,14 +71,14 @@
                 android:gravity="center">
 
                 <TextView
-                    android:id="@+id/marketPlaceId"
+                    android:id="@+id/confirmId"
                     android:layout_width="200dp"
                     android:layout_height="match_parent"
                     android:layout_alignParentEnd="true"
+                    android:background="@drawable/bg_shape_topleft15"
                     android:fontFamily="@font/arbutus"
                     android:gravity="center"
                     android:text="Confirm"
-                    android:background="@drawable/bg_shape_topleft15"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -86,7 +87,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_alignParentStart="true"
-                    android:layout_toStartOf="@+id/marketPlaceId"
+                    android:layout_toStartOf="@+id/confirmId"
                     android:gravity="center"
                     android:orientation="horizontal">
 
@@ -104,16 +105,17 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/totalId"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:background="@color/white"
                         android:fontFamily="@font/arbutus"
                         android:gravity="center"
-                        android:text="2000"
+                        android:text="0"
                         android:textColor="@color/teal_700"
                         android:textSize="12sp"
-                        android:textStyle="bold" />
+                        android:textStyle="normal" />
                 </LinearLayout>
             </RelativeLayout>
         </RelativeLayout>
