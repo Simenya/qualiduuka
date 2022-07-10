@@ -7,6 +7,7 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import androidx.appcompat.app.AlertDialog
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -25,6 +26,7 @@ import com.google.zxing.integration.android.IntentIntegrator
 import com.journeyapps.barcodescanner.CaptureActivity
 import org.json.JSONException
 
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -35,7 +37,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var layoutItems:RelativeLayout
     private var itemValue:TextView? = null
     lateinit var bottomView:RelativeLayout
-    lateinit var total:TextView
+    lateinit var totalNoItems:TextView
     private val scannedPrices = ArrayList<String>()
     private val scannedNames = ArrayList<String>()
 //    private var dialogTotalCost = 0
@@ -54,7 +56,7 @@ class MainActivity : AppCompatActivity() {
         layoutItems = findViewById(R.id.linearLayoutItems)
         itemValue = findViewById(R.id.codeContentsId)
         bottomView = findViewById(R.id.textBtnBottomId)
-        total = findViewById(R.id.totalId)
+        totalNoItems = findViewById(R.id.totalId)
 
 
 
@@ -66,6 +68,7 @@ class MainActivity : AppCompatActivity() {
 
             cameraTask()
         }
+
         //call confirm function
         findViewById<TextView>(R.id.confirmId).setOnClickListener {
             confirmDialog()
@@ -93,14 +96,34 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun confirmDialog(){
+        val listView = findViewById<ListView>(R.id.listViewId)
         if (totalCost > 100 && scannedNames!=null && scannedPrices!=null){
+            //clearing the list after confirming shopping
+            scannedNames.clear()
+            scannedPrices.clear()
+            findViewById<TextView>(R.id.totalId).text = "0"
+
+            listView.adapter = null
+
+            var builder = AlertDialog.Builder(this)
+            builder.setTitle("QAULIDUUKA")
+            builder.setMessage("Amount to Pay: $totalCost UGX\nNumber of Items: $numberItems\n\n" +
+                    "Thanks for Shopping With Us.")
+            builder.setPositiveButton("Cancel"){_,_ ->
+                Toast.makeText(applicationContext,
+                    "Done", Toast.LENGTH_SHORT).show()
+            }
+            builder.setNegativeButton("DONE"){_,_ ->
+                Toast.makeText(applicationContext,
+                    "Canceled", Toast.LENGTH_SHORT).show()
+            }
+            builder.setCancelable(false)
+            builder.show()
 
             //display a dialog
-            val dialog = ConfirmDialog()
-            dialog.show(supportFragmentManager, "Activities")
-            val intent = Intent(this, ConfirmDialog::class.java)
-            intent.putExtra("totalItems", numberItems)
-
+//            val dialog = ConfirmDialog()
+//            dialog.show(supportFragmentManager, "Activities")
+//            findViewById<TextView>(R.id.itemsCostId).text = totalCost.toString()
             Toast.makeText(this, "Thanks For Shopping", Toast.LENGTH_SHORT).show()
         }else{
             Toast.makeText(this, "No Shopping Made !!!", Toast.LENGTH_SHORT).show()
@@ -175,17 +198,18 @@ class MainActivity : AppCompatActivity() {
                     val splitContent = content.split(" ")
                     val itemName = splitContent[0]
                     val itemPrice = splitContent[splitContent.lastIndex]
+                    var myTotalCost = 0
                     scannedNames.add(itemName)
                     scannedPrices.add(itemPrice)
 
                     if (splitContent.size > 1){
                         if (itemPrice.isDigitsOnly()){
-                            for (i in 0 until (scannedPrices.size)){
-                                totalCost += scannedPrices[i].toInt()
-                                total.text = totalCost.toString()
-                                numberItems += scannedNames.size
+                            for (i in 0 until scannedPrices.size){
+                                myTotalCost += scannedPrices[i].toInt()
+                                numberItems = scannedNames.size
                             }
-
+                            totalCost = myTotalCost
+                            totalNoItems.text = totalCost.toString()
                             setListData(this, scannedNames, scannedPrices)
                             cardScaProduct.visibility = View.VISIBLE
                             layoutItems.visibility = View.VISIBLE
